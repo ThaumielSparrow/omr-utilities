@@ -6,7 +6,7 @@ import PyPDF2 as PyPDF
 # Put your Audiveris executable path here. This is the default location for Windows installations.
 audiveris_path = "C:\Program Files\Audiveris\\bin\Audiveris.bat"
 
-pdf_path = "flowering.pdf"
+pdf_path = "shadowofthegods.pdf"
 
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
