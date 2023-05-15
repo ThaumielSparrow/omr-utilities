@@ -16,9 +16,9 @@ def mxl_last_notes(folder_path, save=True, last_N = 10, file_pattern=r"_page_(\d
             last_notes = []
             for element in last_elements:
                 if isinstance(element, music21.note.Note):
-                    last_notes.append(str(element.name))
+                    last_notes.append(str(element.nameWithOctave))
                 elif isinstance(element, music21.chord.Chord):
-                    chord_notes = [str(n.name) for n in element.notes]
+                    chord_notes = [str(n.nameWithOctave) for n in element.notes]
                     last_notes.append(chord_notes)
             
             print(filename)
