@@ -18,7 +18,18 @@ Audiveris will automatically install its dependencies. However, Java is required
 
 ## Schema
 
-Documentation is not provided. Usage should be self explanatory for anyone who has over 2 months of experience with Python.
+CLI is provided via `last_notes.py` file.
+
+A complete pipeline is executed upon running
+
+```
+python last_notes.py music_file.pdf
+```
+
+Optional arguments can be passed to modify the number of notes to pull or regex of the file search schema.
+
+`output` folder should be deleted between runs to avoid errors.
+
 
 ## Attribution
 
