@@ -13,15 +13,22 @@ def mxl_last_notes(folder_path, save=True, last_N = 10, file_pattern=r"_page_(\d
             score = music21.converter.parse(file_path)
             
             last_elements = score.flat.getElementsByClass(['Note', 'Chord'])[-last_N:]
-            last_notes = [str(n) for n in last_elements]
+            last_notes = []
+            for element in last_elements:
+                if isinstance(element, music21.note.Note):
+                    last_notes.append(str(element.name))
+                elif isinstance(element, music21.chord.Chord):
+                    chord_notes = [str(n.name) for n in element.notes]
+                    last_notes.append(chord_notes)
             
             print(filename)
-            print(' '.join(last_notes))
+            output_list = [f"[{', '.join(element)}]" if isinstance(element, list) else element for element in last_notes]
+            print(' '.join(output_list))
             print("\n")
 
             if save:
                 with open(f'{folder_path}/last_notes.txt', 'a') as f:
-                    f.write(f"{filename}\n{' '.join(last_notes)}\n")
+                    f.write(f"{filename}\n{' '.join(output_list)}\n")
 
 if __name__ == "__main__":
-    mxl_last_notes("output")
+    mxl_last_notes("output/")
