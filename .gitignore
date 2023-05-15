@@ -8,3 +8,5 @@ temp/
 output/
 
 deprecated/
+
+__pycache__/

@@ -20,7 +20,7 @@ def mxl_last_notes(folder_path, save=True, last_N = 10, file_pattern=r"_page_(\d
             print("\n")
 
             if save:
-                with open('last_notes.txt', 'a') as f:
+                with open(f'{folder_path}/last_notes.txt', 'a') as f:
                     f.write(f"{filename}\n{' '.join(last_notes)}\n")
 
 if __name__ == "__main__":
